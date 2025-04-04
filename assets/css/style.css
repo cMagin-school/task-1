@@ -33,6 +33,7 @@ body {
     background-color: white;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: clamp(16px, 4vw, 24px); /* Adjust font size responsively */
 }
 
 .content-section {
@@ -51,6 +52,7 @@ body {
 .content-section p {
     flex: 1;
     font-family: 'Ubuntu', sans-serif;
+    font-size: clamp(14px, 3vw, 18px); /* Adjust font size responsively */
 }
 
 #image-container {
