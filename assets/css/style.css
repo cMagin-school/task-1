@@ -1,0 +1,65 @@
+body {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    outline: 20px solid lightgrey;
+}
+
+#header {
+    background: white;
+    height: 101px;
+    position: sticky;
+    top: 0;
+}
+
+#ball {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    cursor: pointer;
+    background-image: url('https://i.gifer.com/origin/f3/f370edb64b179b51e9f6aaa572a62dab_w200.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#text-container {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    position: sticky;
+    top: 100px;
+    background-color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.content-section {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 20px solid white;
+}
+
+.content-section img {
+    max-width: 300px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.content-section p {
+    flex: 1;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#image-container img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}

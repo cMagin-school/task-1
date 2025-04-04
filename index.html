@@ -4,72 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History of the Internet</title>
-    <style>
-        body {
-            margin: 10;
-            padding: 10;
-        background-color: white;
-        outline: 20px solid red;
-        }
-
-
-        #header {
-            background-color: red;
-            height: 100px;
-            position: relative;
-        }
-
-
-        #ball {
-            width: 50px;
-            height: 50px;
-            outline: 4px solid darkgrey;
-            background-color: lightgrey; /* Updated to light gray */
-            border-radius: 50%;
-            position: absolute;
-            top: 25px;
-            left: 0;
-            cursor: pointer;
-        }
-    </style>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">  </head>
 <body>
-    <div id="header">
-        <div id="ball"></div>
+    <div id="header"><div id="ball"></div></div>
+    <div id="text-container">Click and drag the ball across the page to navigate!</div>
+    <div id="image-container"><img src="https://preview.redd.it/windoweaterfourfivesixwithextrafries-v0-w481ouu5ddse1.png?auto=webp&s=c56f7e856d9220ace8cdb3512ccb40b9150cdb73" alt="Image description"></div>
+    <div class="content-section">
+        <p>Network communication began as an idea in the 1960s when the United States government developed ARPANET. This was the first packet-switching network, allowing computers to communicate with each other over far distances. This would be the first step to achieve the Internet.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Arpanet_logical_map%2C_march_1977.png" alt="ARPANET Map">
     </div>
-
-
+    <div class="content-section">
+        <p>During 1989, A man named Tim Berners-Lee invented what he would call the World-Wide-Web. Along with this came web pages, hyperlinks and what would come to be known as Internet Web-Browsers. This made the internet available to the general public, which led to the emergence of websites and eventually online services.</p>
+        <img src="https://cds.cern.ch/images/CERN-GE-9407011-31/file?size=large" alt="Tim Berners-Lee">
+    </div>
+    <div class="content-section">
+        <p>Nowadays, the Internet has grown to humongous with, with over 7000 websites being made every minute (this site being one of them!) The internet has transformed communication with various sites and social media platforms being hosted entirely on the internet. It is used not only for communicating but also for online shopping, streaming and gaming.</p>
+        <img src="https://eduindex.org/wp-content/uploads/2021/07/119505-qrieiaurdc-1557668286.jpg?w=1024" alt="Internet Growth">
+    </div>
     <script>
-        const ball = document.getElementById('ball');
-        const header = document.getElementById('header');
-
-
+        const ball = document.getElementById('ball'), header = document.getElementById('header');
         ball.addEventListener('mousedown', () => {
-            const onMouseMove = (event) => {
-                let newLeft = event.clientX - ball.offsetWidth / 2;
-
-
-                // Prevent ball from going outside the header
-                if (newLeft < 0) {
-                    newLeft = 0;
-                } else if (newLeft > header.offsetWidth - ball.offsetWidth) {
-                    newLeft = header.offsetWidth - ball.offsetWidth;
-                }
-
-
-                ball.style.left = newLeft + 'px';
+            const move = (e) => {
+                let left = Math.max(0, Math.min(e.clientX - ball.offsetWidth / 2, header.offsetWidth - ball.offsetWidth));
+                ball.style.left = left + 'px';
+                window.scrollTo(0, left / (header.offsetWidth - ball.offsetWidth) * (document.body.scrollHeight - window.innerHeight));
             };
-
-
-            document.addEventListener('mousemove', onMouseMove);
-
-
-            document.addEventListener('mouseup', () => {
-                document.removeEventListener('mousemove', onMouseMove);
-            }, { once: true });
+            document.addEventListener('mousemove', move);
+            document.addEventListener('mouseup', () => document.removeEventListener('mousemove', move), { once: true });
         });
     </script>
 </body>
-2000 2005 2010 2015 2020 2025
 </html>
-
